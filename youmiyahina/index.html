@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>Youmiyahina Gallery</title>
+  <style>
+    body {
+      font-family: system-ui;
+      background: #fafafa;
+      margin: 0;
+      padding: 40px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .description {
+      text-align: center;
+      color: #666;
+      margin-bottom: 40px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 6px 20px rgba(0,0,0,.12);
+    }
+  </style>
+</head>
+<body>
+
+<h1>youmiyahina</h1>
+
+<!-- ✅ 可编辑文本变量 -->
+<div class="description" id="desc"></div>
+
+<div class="gallery" id="gallery"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
