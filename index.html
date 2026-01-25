@@ -1,39 +1,84 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 <head>
 <meta charset="utf-8">
-<title>羊噶的女聲優庫</title>
+<title>Gallery Home</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <style>
 body{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  height:100vh;
-  background:#111;
+  margin:0;
+  background:#0f0f0f;
+  color:#fff;
+  font-family:sans-serif;
+}
+header{
+  padding:30px 20px;
+  max-width:1000px;
+  margin:auto;
+}
+header h1{
+  margin:0 0 10px;
+  font-size:32px;
+}
+header p{
+  color:#bbb;
+  line-height:1.6;
+}
+
+/* 卡片区 */
+.grid{
+  max-width:1000px;
+  margin:auto;
+  padding:0 20px 40px;
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:20px;
 }
 .card{
-  width:260px;
   cursor:pointer;
-  text-align:center;
-  color:white;
-  font-family:sans-serif;
 }
 .card img{
   width:100%;
-  border-radius:12px;
+  aspect-ratio:4/5;
+  object-fit:cover;
+  border-radius:14px;
 }
 .card div{
   margin-top:10px;
-  font-size:24px;
+  text-align:center;
+  font-size:18px;
 }
 </style>
 </head>
 <body>
 
-<div class="card" onclick="location.href='/youmiyahina/'">
-  <!-- 这里选 youmiyahina 里的任意一张照片 -->
-  <img src="youmiyahina/ASFE6280.PNG">
-  <div>羊宮妃那</div>
+<header>
+  <h1>這裏是一個羊噶的傢，存放著一些女聲優的圖片</h1>
+
+  <!-- ✅ 这里是首页可编辑文本 -->
+  <p>
+    这里的文字你可以随时修改。  
+    以后可以介绍网站、说明内容，或者写任何你想写的东西。
+  </p>
+</header>
+
+<div class="grid">
+
+  <!-- ✅ 一个子路径卡片（youmiyahina） -->
+  <div class="card" onclick="location.href='/youmiyahina/'">
+    <img src="youmiyahina/ASFE6280.PNG">
+    <div>羊宮妃那</div>
+  </div>
+
+  <!-- 🚀 以后加新的子路径，复制下面这一整块即可 -->
+  <!--
+  <div class="card" onclick="location.href='/其他路径/'">
+    <img src="其他路径/封面图片.jpg">
+    <div>显示名称</div>
+  </div>
+  -->
+
 </div>
 
 </body>
