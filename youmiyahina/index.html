@@ -1,50 +1,58 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Youmiyahina Gallery</title>
-  <style>
-    body {
-      font-family: system-ui;
-      background: #fafafa;
-      margin: 0;
-      padding: 40px;
-    }
-
-    h1 {
-      text-align: center;
-      margin-bottom: 10px;
-    }
-
-    .description {
-      text-align: center;
-      color: #666;
-      margin-bottom: 40px;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 20px;
-    }
-
-    .gallery img {
-      width: 100%;
-      border-radius: 12px;
-      object-fit: cover;
-      box-shadow: 0 6px 20px rgba(0,0,0,.12);
-    }
-  </style>
+<meta charset="utf-8">
+<title>youmiyahina</title>
+<style>
+body{
+  margin:0;
+  background:#000;
+  color:#fff;
+  font-family:sans-serif;
+}
+h1{
+  padding:20px;
+}
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+  gap:10px;
+  padding:10px;
+}
+.gallery img{
+  width:100%;
+  border-radius:10px;
+}
+</style>
 </head>
 <body>
 
-<h1>youmiyahina</h1>
-
-<!-- ✅ 可编辑文本变量 -->
-<div class="description" id="desc"></div>
-
+<h1 id="text"></h1>
 <div class="gallery" id="gallery"></div>
 
-<script src="script.js"></script>
+<script>
+/* 👇 你只改这一行文字就行 */
+document.getElementById("text").innerText =
+  "這裏有羊宮妃那的一些照片（她真的好漂亮漂亮）❤❤❤";
+
+/* 👇 你的 GitHub 信息（只填一次） */
+const owner = "Youmiya-Hina";
+const repo  = "Start";
+const path  = "youmiyahina";
+
+/* 自动读取 GitHub 文件夹 */
+fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`)
+  .then(res => res.json())
+  .then(files => {
+    files
+      .filter(f => f.type === "file" && /\.(jpg|jpeg|png|webp)$/i.test(f.name))
+      .forEach(f => {
+        const img = document.createElement("img");
+        img.src = f.download_url;
+        document.getElementById("gallery").appendChild(img);
+      });
+  });
+</script>
+
 </body>
 </html>
